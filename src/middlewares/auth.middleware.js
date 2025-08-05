@@ -1,4 +1,4 @@
-const jwt = require('../utils/jwt');
+const jwt = require('../utils/generateToken');
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
