@@ -50,3 +50,22 @@ Thumbs.db
 # Build directories
 dist/
 build/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Debug and test files
+debug-*.js
+test-*.js
+check_*.js
+find-*.js
+
+# Alternative/backup files
+*.original.js
+*.simple.js
+*.enhanced.js
+*.fixed.js
+*.backup.js
