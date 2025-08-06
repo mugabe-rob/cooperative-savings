@@ -3,7 +3,7 @@ const router = express.Router();
 const contributionController = require('../controllers/contribution.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
-router.use(authMiddleware.verifyToken);
+router.use(authMiddleware);
 
 router.post('/', contributionController.createContribution);
 router.get('/', contributionController.getAllContributions);

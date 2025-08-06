@@ -1,11 +1,11 @@
-const jwt = require('../utils/generateToken');
+const { verifyToken } = require('../utils/generateToken');
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'Access token missing' });
 
   try {
-    const decoded = jwt.verifyToken(token);
+    const decoded = verifyToken(token);
     req.user = decoded;
     next();
   } catch (err) {

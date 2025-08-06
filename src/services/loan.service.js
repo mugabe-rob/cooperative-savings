@@ -1,6 +1,18 @@
 const { Loan, Repayment } = require('../models');
 
 const LoanService = {
+  async createLoan(data) {
+    return await Loan.create(data);
+  },
+
+  async getAllLoans() {
+    return await Loan.findAll({
+      include: [
+        { model: Repayment }
+      ]
+    });
+  },
+
   async applyForLoan(data) {
     return await Loan.create(data);
   },
@@ -22,7 +34,7 @@ const LoanService = {
   async repayLoan(loanId, amount) {
     const repayment = await Repayment.create({ loanId, amount });
     return repayment;
-  },
+  }
 };
 
-module.exports = LoanService;
+module.exports = LoanService; 

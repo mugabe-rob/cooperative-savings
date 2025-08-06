@@ -3,7 +3,7 @@ const router = express.Router();
 const reportController = require('../controllers/report.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
-router.use(authMiddleware.verifyToken);
+router.use(authMiddleware);
 
 router.get('/summary', reportController.getGroupSummary);
 router.get('/loans', reportController.getLoanReport);

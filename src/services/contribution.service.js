@@ -5,6 +5,15 @@ const ContributionService = {
     return await Contribution.create(data);
   },
 
+  async getAllContributions() {
+    return await Contribution.findAll({
+      include: [
+        { model: User, attributes: ['id', 'firstName', 'lastName'] },
+        { model: Group, attributes: ['id', 'name'] }
+      ]
+    });
+  },
+
   async getGroupContributions(groupId) {
     return await Contribution.findAll({ where: { groupId } });
   },
@@ -15,7 +24,7 @@ const ContributionService = {
 
   async deleteContribution(id) {
     return await Contribution.destroy({ where: { id } });
-  },
+  }
 };
 
 module.exports = ContributionService;

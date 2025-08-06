@@ -20,7 +20,8 @@ const GroupService = {
 
   async deleteGroup(id) {
     return await Group.destroy({ where: { id } });
-  },
+  }
 };
 
 module.exports = GroupService;
+

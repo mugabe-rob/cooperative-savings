@@ -3,7 +3,7 @@ const router = express.Router();
 const groupController = require('../controllers/group.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
-router.use(authMiddleware.verifyToken);
+router.use(authMiddleware);
 
 router.post('/', groupController.createGroup);
 router.get('/', groupController.getAllGroups);
